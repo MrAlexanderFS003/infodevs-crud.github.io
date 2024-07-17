@@ -255,6 +255,8 @@ async function updateProduct(id,name,type,brand,image,model,section,price) {
       title: 'Realizado',
       text: 'Producto Modificado'
     });
+
+    $('#AddProductModal').modal('hide');
     
 
   } catch (error) {

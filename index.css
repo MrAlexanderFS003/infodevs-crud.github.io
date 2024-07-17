@@ -84,3 +84,11 @@ main {
 .cont-data {
     height: inherit;
 }
+
+.danger-id {
+    border: 1px solid red;
+}
+
+.succes-id {
+    border: 1px solid green;
+}

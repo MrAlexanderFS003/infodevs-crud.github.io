@@ -18,6 +18,7 @@ async function CreateTableProducts() {
   const jsonProducts = dataProducts.record.products;
     jsonProducts.forEach(element => {
     const tr = document.createElement('tr');
+    const tdid = document.createElement('td');
     const tdImage = document.createElement('td');
     const tdName = document.createElement('td');
     const tdType = document.createElement('td');
@@ -26,6 +27,8 @@ async function CreateTableProducts() {
     const tdSection = document.createElement('td');
     const tdPrice = document.createElement('td');
 
+
+    tdid.innerHTML = element.id
     tdImage.innerHTML = `<img class="img-products" src="${element.image}" />`;
     tdImage.classList = 'd-flex justify-content-center'
     tdName.innerHTML = element.name;
@@ -35,6 +38,7 @@ async function CreateTableProducts() {
     tdSection.innerHTML = element.section;
     tdPrice.innerHTML = element.price;
 
+    tr.appendChild(tdid);
     tr.appendChild(tdImage);
     tr.appendChild(tdName);
     tr.appendChild(tdType);

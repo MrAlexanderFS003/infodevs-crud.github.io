@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>CRUD admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./../../index.css">
@@ -27,7 +27,7 @@
             </div>
             <div class="e-navlist e-navlist--active-bg">
               <ul class="nav">
-                <li class="nav-item"><a class="nav-link px-2" href="/"><i
+                <li class="nav-item"><a class="nav-link px-2" href="./../../index.html"><i
                       class="fa fa-fw fa-bar-chart m-1 icon-menu"></i><span>Incio</span></a></li>
                 <li class="nav-item"><a class="nav-link px-2 nav-link__active" href="./crud.html"><i
                       class="fa fa-fw fa-th m-1 icon-menu"></i><span>Agregar/Editar/Eliminar</span></a></li>
@@ -60,6 +60,7 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
+                            <th class="text-center">ID</th>
                             <th class="text-center">Imagen</th>
                             <th class="max-width">Nombre</th>
                             <th class="sortable">tipo</th>
@@ -83,7 +84,7 @@
                 <div class="card-body">
                   <div class="text-center px-xl-3">
                     <button class="btn btn-success btn-block" type="button" data-toggle="modal"
-                    data-target="#editProductModal" id="addProduct">Nuevo producto</button>
+                      data-target="#AddProductModal" id="addProduct">Nuevo producto</button>
                   </div>
                 </div>
               </div>
@@ -138,6 +139,71 @@
               </div>
               <div class="d-flex justify-content-center mt-2">
                 <button type="button" class="btn btn-primary" onclick="saveProductChanges()">Guardar Cambios</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para Agregar producto -->
+    <div class="modal fade" id="AddProductModal" tabindex="-1" role="dialog" aria-labelledby="AddProductModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="d-flex justify-content-between modal-header ">
+            <h5 class="modal-title" id="AddProductModalLabel">Agregar Producto</h5>
+            <button type="button" class="close bg-danger border-0 rounded-lg" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="AddProductForm" class="needs-validation" novalidate>
+              <div class="form-group mt-2">
+                <label for="AddProductId">ID del producto</label>
+                <div class="input-group mb-2">
+                  <input type="text" maxlength="7" class="form-control" id="AddProductId" placeholder="Pulsa 'Generar' para obtener un id" disabled required>
+                  <button class="btn btn-outline-primary" type="button" id="generateID">Generar</button>
+                </div>  
+              </div>
+
+              <div class="form-group mt-2">
+                <label for="AddProductImage">Imagen</label>
+                <input type="text" class="form-control" id="AddProductImage"
+                  placeholder="Ejm: https://example.com/product/sintitulo5393.png " required>
+                <small>Usa la pagina <a href="https://es.imgbb.com/">https://es.imgbb.com/</a> para agregar imagenes
+                  usar su enlace</small>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductName">Nombre</label>
+                <input type="text" class="form-control" id="AddProductName" placeholder="Nombre del producto" required>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductType">Tipo</label>
+                <input type="text" class="form-control" id="AddProductType" placeholder="Tipo de producto" required>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductBrand">Marca</label>
+                <input type="text" class="form-control" id="AddProductBrand" placeholder="A que empresa pertenece"
+                  required>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductModel">Modelo</label>
+                <input type="text" class="form-control" id="AddProductModel" placeholder="Depende del producto"
+                  required>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductSection">Sección</label>
+                <input type="text" class="form-control" id="AddProductSection"
+                  placeholder="Sector en la que se encuentra" required>
+              </div>
+              <div class="form-group mt-2">
+                <label for="AddProductPrice">Precio</label>
+                <input type="number" class="form-control" id="AddProductPrice" placeholder="Evitar numeros negativos"
+                  required>
+              </div>
+              <div class="d-flex justify-content-center mt-2">
+                <button type="button" class="btn btn-primary" onclick="AddProduct()">Agregar Producto</button>
               </div>
             </form>
           </div>

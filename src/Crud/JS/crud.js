@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function getJsonForProducts() {
   const keyMaster = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a';
-  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', { method: 'GET', headers: { 'mode' : 'no-cors',  'X-Master-Key': keyMaster } })
+  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', { method: 'GET', headers: { 'X-Master-Key': keyMaster } })
     .then(response => response.json());
   const jsonProducts = dataProducts.record.products;
   

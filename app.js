@@ -10,8 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
 */
 async function CreateTableProducts() {
   const products = document.getElementById('products'); // En donde mostraremos los datos
-  const keyMaster = '$2a$10$RHduZ6vFijtybXNzFj2Jre630q9e.qjzrnr3ebiIVx17nE2qxpEQ6'; // tokken o llave
-  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', {method:'GET',headers: {'X-Master-Key': keyMaster }})
+  const keyMaster = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a'; // tokken o llave
+  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', {
+    method:'GET',
+    headers: {
+      mode: 'no-cors',
+      'X-Master-Key': keyMaster 
+    }
+  })
     .then(response => response.json()); // Se obtiene el JSON del servicio alojado
 
   // Iteracion del array 

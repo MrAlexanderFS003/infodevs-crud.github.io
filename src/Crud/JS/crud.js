@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function getJsonForProducts() {
-  const keyMaster = '$2a$10$RHduZ6vFijtybXNzFj2Jre630q9e.qjzrnr3ebiIVx17nE2qxpEQ6';
-  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', { method: 'GET', headers: { 'X-Master-Key': keyMaster } })
+  const keyMaster = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a';
+  const dataProducts = await fetch('https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828', { method: 'GET', headers: { 'mode' : 'no-cors',  'X-Master-Key': keyMaster } })
     .then(response => response.json());
   const jsonProducts = dataProducts.record.products;
   
@@ -169,9 +169,8 @@ function saveProductChanges() {
 }
 
 async function updateProduct(id,name,type,brand,image,model,section,price) {
-  /* console.log(id,' - ' ,name,' - ' ,type,' - ' ,brand,' - ' ,image,' - ' ,model,' - ' ,price, ' - ' ,section); */
   const apiUrl = 'https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828';
-  const secretKey = '$2a$10$RHduZ6vFijtybXNzFj2Jre630q9e.qjzrnr3ebiIVx17nE2qxpEQ6';
+  const secretKey = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a';
   const productId = id;
   console.log("ID del producto: ", productId)
   // Datos actualizados del producto
@@ -209,20 +208,6 @@ async function updateProduct(id,name,type,brand,image,model,section,price) {
     // Actualizar el producto en la lista
     if (productIndex !== -1) {
       products[productIndex] = updatedProduct;
-    } else {
-      // Si no se encuentra, agregar el nuevo producto (opcional)
-      const IDRandom = Math.floor(Math.random() * 500);
-      updatedProduct = {
-        "id": IDRandom,
-        "name": name,
-        "type": type,
-        "brand": brand,
-        "image": image,
-        "model": model,
-        "price": parseFloat(price),
-        "section": section
-      }
-      products.push(updatedProduct);
     }
 
     // Estructura completa del JSON para enviar de vuelta
@@ -249,7 +234,7 @@ async function updateProduct(id,name,type,brand,image,model,section,price) {
     }
 
     const updateResult = await updateResponse.json();
-    //console.log('Producto actualizado:', updateResult);
+    console.log('Producto actualizado:', updateResult);
     Swal.fire({
       icon: 'success',
       title: 'Realizado',
@@ -288,7 +273,7 @@ async function AddProduct() {
   }
 
   const apiUrl = 'https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828';
-  const secretKey = '$2a$10$RHduZ6vFijtybXNzFj2Jre630q9e.qjzrnr3ebiIVx17nE2qxpEQ6';
+  const secretKey = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a';
   const productId = id;
   console.log("ID del producto: ", productId)
   // Datos actualizados del producto
@@ -397,7 +382,7 @@ function checkIdInTable(generatedId) {
 
 async function deleteProduct(id) {
   const apiUrl = 'https://api.jsonbin.io/v3/b/668c97b3acd3cb34a8635828';
-  const secretKey = '$2a$10$RHduZ6vFijtybXNzFj2Jre630q9e.qjzrnr3ebiIVx17nE2qxpEQ6';
+  const secretKey = '$2a$10$a4qnvn8x5u9JjJLvSAAvKO/aH1xQQ.UKmE9Yzix96kxVzNuzscw0a';
   const productId = id; // El ID del producto que deseas eliminar
    
   console.log(typeof id)
